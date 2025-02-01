@@ -1,0 +1,249 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(45deg, rgba(0, 255, 255, 0.3), rgba(255, 0, 255, 0.3), rgba(0, 0, 255, 0.3));
+  background-size: 400% 400%;
+  animation: neonBackground 5s ease-in-out infinite; /* Neon background animation */
+  padding: 20px;
+}
+
+.question-section {
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  animation: slideUp 0.8s ease-out;
+}
+
+.question-section h2 {
+  margin-bottom: 20px;
+  font-size: 30px;
+  color: #333;
+}
+
+.question-section p {
+  margin-bottom: 30px;
+  font-size: 20px;
+  color: #555;
+}
+
+.answer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.answer-section button {
+  background-color: #2eb2ff;
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.answer-section button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.answer-section button:active {
+  transform: scale(0.98);
+}
+
+/* Selected Answers */
+.selected-answer {
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.6); /* Blue shadow effect */
+  border: 2px solid #007bff; /* Blue border */
+  transform: scale(1.05); /* Slight scaling effect */
+  background-color: #e7f3fe; /* Light blue background */
+}
+
+/* Navigation Buttons */
+.navigation-buttons {
+  display: flex;
+  justify-content: center; /* Center alignment */
+  gap: 20px; /* Spacing between buttons */
+  margin-top: 20px;
+}
+
+.navigation-buttons button {
+  background-color: #f4beef; /* Button color */
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 12px 24px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.navigation-buttons button:hover {
+  background-color: #f02ded; /* Darker hover color */
+  transform: scale(1.05);
+}
+
+.navigation-buttons button:active {
+  transform: scale(0.98);
+}
+
+.navigation-buttons button:disabled {
+  background-color: #cccccc; /* Disabled button color */
+  cursor: not-allowed;
+}
+
+/* Score Section */
+.score-section {
+  text-align: center;
+  font-size: 22px;
+  background-color: rgba(249, 249, 249, 0.284);
+  border-radius: 10px;
+  padding: 30px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-out;
+}
+
+.score-section button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.score-section button:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+/* Incorrect Answers Section */
+.incorrect-section {
+  text-align: center;
+  background-color: white;
+  border-radius: 10px;
+  padding: 30px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  max-height: 80vh;
+  overflow-y: auto;
+  animation: slideIn 0.8s ease-out;
+}
+
+.incorrect-section h2 {
+  margin-bottom: 20px;
+  font-size: 26px;
+  color: #333;
+}
+
+.incorrect-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+}
+
+.incorrect-section li {
+  margin-bottom: 20px;
+  font-size: 18px;
+  text-align: left;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  border-left: 5px solid #dc3545;
+  animation: fadeInLi 0.5s ease-out;
+}
+
+.incorrect-section li.correct-answer {
+  border-left-color: #28a745;
+  background-color: #d4edda;
+}
+
+.incorrect-section button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 20px;
+}
+
+.incorrect-section button:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes neonBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInLi {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
